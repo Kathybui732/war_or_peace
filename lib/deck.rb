@@ -2,16 +2,16 @@ class Deck
   attr_reader :cards
 
   def initialize(cards)
-    @cards = Array.new
+    @cards = cards
   end
 
   def rank_of_card_at(position)
-    @cards[position]
+    @cards[position].rank
   end
 
   def high_ranking_cards
     high_cards = cards.select do |value|
-      cards.rank > 11
+      value.rank > 11
     end
   end
 
@@ -26,4 +26,5 @@ class Deck
   def add_card(card)
     @cards << card
   end
+
 end
