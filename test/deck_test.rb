@@ -19,7 +19,7 @@ class DeckTest < Minitest::Test
     assert_equal cards, deck.cards
   end
 
-  def test_rank_of_cards_at_0
+  def test_it_can_give_rank_of_cards_at_0
     card1 = Card.new(:diamond, "Queen", 12)
     card2 = Card.new(:spade, '3', 3)
     card3 = Card.new(:heart, "Ace", 14)
@@ -31,7 +31,7 @@ class DeckTest < Minitest::Test
     assert_equal 12, deck.rank_of_card_at(0)
   end
 
-  def test_rank_of_cards_at_2
+  def test_it_can_give_rank_of_cards_at_2
     card1 = Card.new(:diamond, "Queen", 12)
     card2 = Card.new(:spade, '3', 3)
     card3 = Card.new(:heart, "Ace", 14)
@@ -43,7 +43,7 @@ class DeckTest < Minitest::Test
     assert_equal 14, deck.rank_of_card_at(2)
   end
 
-  def test_what_is_in_cards
+  def test_it_can_return_what_is_in_cards_array
     card1 = Card.new(:diamond, "Queen", 12)
     card2 = Card.new(:spade, '3', 3)
     card3 = Card.new(:heart, "Ace", 14)
@@ -55,7 +55,7 @@ class DeckTest < Minitest::Test
     assert_equal cards, deck.cards
   end
 
-  def test_what_are_high_ranking_cards
+  def test_it_knows_what_are_high_ranking_cards
     card1 = Card.new(:diamond, "Queen", 12)
     card2 = Card.new(:spade, '3', 3)
     card3 = Card.new(:heart, "Ace", 14)
@@ -67,7 +67,7 @@ class DeckTest < Minitest::Test
     assert_equal [card1, card3], deck.high_ranking_cards
   end
 
-  def test_percent_high_ranking
+  def test_it_can_give_percent_high_ranking_cards
     card1 = Card.new(:diamond, "Queen", 12)
     card2 = Card.new(:spade, '3', 3)
     card3 = Card.new(:heart, "Ace", 14)
@@ -78,7 +78,7 @@ class DeckTest < Minitest::Test
     assert_equal 66.67, deck.percent_high_ranking
   end
 
-  def test_can_it_remove_a_card
+  def test_it_can_remove_a_card
     card1 = Card.new(:diamond, "Queen", 12)
     card2 = Card.new(:spade, '3', 3)
     card3 = Card.new(:heart, "Ace", 14)
