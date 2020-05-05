@@ -6,11 +6,11 @@ class Deck
   end
 
   def rank_of_card_at(position)
-    @cards[position].rank
+    cards[position].rank
   end
 
   def high_ranking_cards
-    @high_cards = cards.select do |value|
+    high_cards = cards.select do |value|
       value.rank >= 11
     end
   end
@@ -23,7 +23,8 @@ class Deck
   end
 
   def remove_card
-    @cards.shift
+    cards.shift
+    return cards
   end
 
   def add_card(card)
