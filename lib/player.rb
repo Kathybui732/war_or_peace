@@ -1,8 +1,13 @@
 class Player
   attr_reader :name, :deck
 
-  def initialize(name, player_deck)
+  def initialize(name, deck)
     @name = name
-    @player_deck = player_deck
+    @deck = deck
+  end
+
+  def has_lost?
+    return true if @deck == []
+    false
   end
 end
