@@ -97,11 +97,10 @@ class DeckTest < Minitest::Test
     # cards = [card1, card2, card3]
     # deck = Deck.new(cards)
     deck = @deck
-    card2 = @card2
+    card1 = @card1
     card3 = @card3
 
-    expected = [card2, card3]
-    assert_equal expected, deck.remove_card
+    assert_equal card1, deck.remove_card
     assert_equal [card3], deck.high_ranking_cards
     assert_equal 50.0, deck.percent_high_ranking
   end
