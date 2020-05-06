@@ -70,4 +70,11 @@ class TurnTest < Minitest::Test
     player2 = @player2
   end
 
+  def test_it_has_empty_spoils_of_war
+    turn = @turn
+
+    assert_equal [], turn.spoils_of_war
+  end
+  
+
 end
