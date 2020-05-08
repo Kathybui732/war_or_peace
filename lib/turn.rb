@@ -38,7 +38,6 @@ class Turn
   end
 
   def pile_cards
-    # Cards played from player1 and player2 are stacked into spoils of war
     if type == :basic
       @spoils_of_war.push(player1.deck.remove_card, player2.deck.remove_card)
     elsif type == :war
