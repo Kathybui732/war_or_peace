@@ -43,8 +43,9 @@ class TurnTest < Minitest::Test
   end
 
   def test_it_can_add_spoils_of_war_to_winners_deck
-    @turn.award_spoils
-    assert_equal [@card8], @player1.deck
-    assert_equal [@card7, @card1, @card2, @card5, @card4, @card3, @card6], @player2.deck
+    @turn.pile_cards
+    @turn.award_spoils(@turn.winner)
+    assert_equal [@card8], @player1.deck.cards
+    assert_equal [@card7, @card1, @card2, @card5, @card4, @card3, @card6], @player2.deck.cards
   end
 end
