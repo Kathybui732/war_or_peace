@@ -62,22 +62,10 @@ class Turn
   def game_messages
     if type == :basic
       puts "#{winner.name} won 2 cards"
-      puts "#{@player1.deck.cards.count} & #{@player2.deck.cards.count}"
-      puts "#{@player1.deck.cards}"
-      puts "AND"
-      puts "#{@player2.deck.cards}"
     elsif type == :war
       puts "WAR - #{winner.name} won 6 cards"
-      puts "#{@player1.deck.cards.count} & #{@player2.deck.cards.count}"
-      puts "#{@player1.deck.cards}"
-      puts "AND"
-      puts "#{@player2.deck.cards}"
     elsif type == :mutually_assured_destruction
       puts "*mutually assured destruction* 6 cards removed from play"
-      puts "#{@player1.deck.cards.count} & #{@player2.deck.cards.count}"
-      puts "#{@player1.deck.cards}"
-      puts "AND"
-      puts "#{@player2.deck.cards}"
     end
   end
 
