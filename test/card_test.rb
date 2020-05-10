@@ -9,7 +9,6 @@ class CardTest < Minitest::Test
 
   def test_it_exists
     card = Card.new(:diamond, 'Queen', 12)
-
     assert_instance_of Card, card
   end
 
