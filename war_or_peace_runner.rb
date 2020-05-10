@@ -63,3 +63,15 @@ deck2 = [@card1, @card3, @card7, @card10, @card11, @card13, @card15, @card17, @c
 
 player1 = Player.new("Kathy", deck1r)
 player2 = Player.new("Justin", deck2r)
+
+runner_turn = Turn.new(player1, player2)
+
+puts "Welcome to War! (or Peace) This game will be played with #{deck1r.count + deck2r.count} cards."
+puts "The players today are Megan and Aurora."
+puts "Type 'GO' to start the game!"
+
+input = gets.chomp.upcase
+
+if input == "GO"
+  Start.new(runner_turn)
+end
