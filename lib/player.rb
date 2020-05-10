@@ -7,6 +7,10 @@ class Player
   end
 
   def has_lost?
-    deck.cards == []
+    @deck.cards == []
+  end
+
+  def not_enough_cards?
+    @deck.cards.count < 3
   end
 end
