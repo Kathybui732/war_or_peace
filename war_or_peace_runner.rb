@@ -60,12 +60,12 @@ card50 = Card.new(:club, "Queen", 12)
 card51 = Card.new(:club, "King", 13)
 card52 = Card.new(:club, "Ace", 14)
 
-deck1 = [card2, card4, card5, card6, card8, card9, card12, card14, card16, card20, card23, card25, card26, card28, card30, card32, card34, card36, card37, card38, card42, card45, card47, card48, card50, card52]
+full_deck = [card1, card2, card3, card4, card5, card6, card7, card8, card9, card10, card11, card12, card13, card14, card15, card16, card17, card18, card19, card20, card21, card22, card23, card24, card25, card26, card27, card28, card29,card30, card31, card32, card33, card34, card35, card36, card37, card38, card39, card40, card41, card42, card43, card44, card45, card46, card47, card48, card49, card50, card51, card52]
 
-deck2 = [card1, card3, card7, card10, card11, card13, card15, card17, card18, card19, card21, card22, card24, card27, card29, card31, card33, card35, card39, card4, card4, card4, card4, card4, card49, card51]
+game_deck = full_deck.shuffle!
 
-deck1 = deck1
-deck2 = deck2
+deck1 = game_deck[0..25]
+deck2 = game_deck[26..51]
 
 deck1r = Deck.new(deck1)
 deck2r = Deck.new(deck2)
