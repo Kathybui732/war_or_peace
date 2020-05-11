@@ -41,7 +41,7 @@ class TurnTest < Minitest::Test
     @turn3 = Turn.new(@player5, @player6)
   end
 
-  def test_basic_turn_it_exists
+  def test_basic_turn_exists
     assert_instance_of Turn, @turn1
   end
 
@@ -77,7 +77,7 @@ class TurnTest < Minitest::Test
     assert_equal [@card4, @card6, @card7], @player2.deck.cards
   end
 
-  def test_war_turn_it_exists
+  def test_war_turn_exists
     assert_instance_of Turn, @turn2
   end
 
@@ -89,7 +89,7 @@ class TurnTest < Minitest::Test
     assert_equal @player4, @turn2.winner
   end
 
-  def test_war_cards_are_piled_to_spoils_of_war
+  def test_war_cards_are_piled_into_spoils_of_war
     @turn2.pile_cards
     assert_equal [@card1, @card2, @card5, @card4, @card3, @card6], @turn2.spoils_of_war
   end
@@ -101,11 +101,11 @@ class TurnTest < Minitest::Test
     assert_equal [@card7, @card1, @card2, @card5, @card4, @card3, @card6], @player4.deck.cards
   end
 
-  def test_mad_turn_it_exists
+  def test_mad_turn_exists
     assert_instance_of Turn, @turn3
   end
 
-  def test_type_is_mad
+  def test_turn_type_is_mad
     assert_equal :mutually_assured_destruction, @turn3.type
   end
 
@@ -118,7 +118,7 @@ class TurnTest < Minitest::Test
     assert_equal [], @turn3.spoils_of_war
   end
 
-  def test_mad_cards_are_removed_from_both_players_decks
+  def test_mad_spoils_of_war_are_removed_from_both_players_decks
     @turn3.pile_cards
     @turn3.award_spoils(@turn3.winner)
     assert_equal [@card8], @player5.deck.cards
