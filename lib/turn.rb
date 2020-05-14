@@ -13,26 +13,38 @@ class Turn
   end
 
   def type
-    if @player1.deck.rank_of_card_at(0) == @player2.deck.rank_of_card_at(0) && player1.deck.rank_of_card_at(2) == player2.deck.rank_of_card_at(2)
+    if is_mad?
       :mutually_assured_destruction
-    elsif @player1.deck.rank_of_card_at(0) == @player2.deck.rank_of_card_at(0)
+    elsif is_war?
       :war
     else
       :basic
     end
   end
 
+  def is_basic?
+    @player1.first_card != @player2.first_card
+  end
+
+  def is_war?
+    @player1.first_card == @player2.first_card
+  end
+
+  def is_mad?
+    @player1.first_card == @player2.first_card && @player1.third_card == @player2.third_card
+  end
+
   def winner
     if type == :mutually_assured_destruction
       "No Winner"
     elsif type == :war
-      if @player1.deck.rank_of_card_at(2) > @player2.deck.rank_of_card_at(2)
+      if @player1.third_card > @player2.third_card
         @player1
       else
         @player2
       end
     elsif type == :basic
-      if @player1.deck.rank_of_card_at(0) > @player2.deck.rank_of_card_at(0)
+      if @player1.first_card > @player2.first_card
         @player1
       else
         @player2
@@ -42,19 +54,19 @@ class Turn
 
   def pile_cards
     if type == :basic
-      @spoils_of_war << @player1.deck.remove_card
-      @spoils_of_war << @player2.deck.remove_card
+      @spoils_of_war << @player1.lose_card
+      @spoils_of_war << @player2.lose_card
     elsif type == :war
       3.times do
-        @spoils_of_war << @player1.deck.remove_card
+        @spoils_of_war << @player1.lose_card
       end
       3.times do
-        @spoils_of_war << @player2.deck.remove_card
+        @spoils_of_war << @player2.lose_card
       end
     elsif type == :mutually_assured_destruction
       3.times do
-        @player1.deck.remove_card
-        @player2.deck.remove_card
+        @player1.lose_card
+        @player2.lose_card
       end
     end
   end
